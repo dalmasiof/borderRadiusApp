@@ -16,13 +16,7 @@ export class AppComponent implements OnInit {
   mousemove = fromEvent(document, 'mousemove');
   mouseup = fromEvent(document, 'mouseup');
 
-  lastPosition  : number = 0
-
-
   ngOnInit(): void {
-
-
-
   }
 
   onHoverClick(position: string, multiplier: number) {
@@ -32,7 +26,7 @@ export class AppComponent implements OnInit {
     if (element) {
 
 
-
+      
       switch (position) {
 
         case "Tl":
@@ -82,26 +76,33 @@ export class AppComponent implements OnInit {
 
   }
 
-  changeRadius() {
-
-  }
-
-
   pointDown(position: string) {
+    var direction = position.substring(1)
+    
     this.mousemove.pipe(
       takeUntil(this.mouseup)
     ).subscribe((em: MouseEventInit) => {
       debugger
-      let x = em.screenX
+      let x = em.movementX
+      
       if (x) {
-        if (this.lastPosition < x) {
-          this.onHoverClick(position, -1);
-          this.lastPosition = x;
+        if(direction=='r'){
+          if (x > 0) {
+            this.onHoverClick(position, -1);
+          }
+          else {
+            this.onHoverClick(position, 1);
+          }
         }
-        else {
-          this.onHoverClick(position, 1);
-          this.lastPosition = x;
+        else{
+          if (x > 0) {
+            this.onHoverClick(position, 1);
+          }
+          else {
+            this.onHoverClick(position, -1);
+          }
         }
+      
       }
 
     })
