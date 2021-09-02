@@ -1,15 +1,21 @@
 .outerBox{
-    border: 1px solid black
+    /* border: 1px solid black */
 }
 #innerBox{
-
     background-color: blueviolet;
     width: 600px !important;
     height: 500px !important;
-
 }
 
 .point{
     user-select: none;
     cursor: pointer;
+}
+
+.field{
+        width: 100px !important;
+}
+
+mat-form-field{
+    margin-right: 2px;
 }

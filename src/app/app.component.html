@@ -1,22 +1,20 @@
-<div  class="outerBox" fxLayout="row" fxLayoutAlign="space-around center">
-  <div fxFLex="50">
- 
-   
-      <mat-icon (mousedown)="pointDown('Tl')"
-      id="Tl" class="material-icons-outlined point">adjust</mat-icon>
+<div fxLayout="row" fxLayoutAlign="space-around center">
+  <div fxFLex="50" style="display: block;">
 
+
+    <mat-icon (mousedown)="pointDown('Tl')" id="Tl" class="material-icons-outlined point">adjust</mat-icon>
 
   </div>
 
+
   <div fxFLex="50">
-    <mat-icon (mousedown)="pointDown('Tr')" 
-    id="Tr" class="material-icons-outlined point">adjust</mat-icon>
+    <mat-icon (mousedown)="pointDown('Tr')" id="Tr" class="material-icons-outlined point">adjust</mat-icon>
 
   </div>
 
 </div>
 
-<div class="outerBox" fxLayout="row" fxLayoutAlign="space-around center">
+<div fxLayout="row" fxLayoutAlign="space-around center">
   <div fxFLex="20">
 
   </div>
@@ -30,18 +28,57 @@
 </div>
 
 
-<div class="outerBox" fxLayout="row" fxLayoutAlign="space-around center">
+<div fxLayout="row" fxLayoutAlign="space-around center">
   <div fxFLex="50">
-    <mat-icon (mousedown)="pointDown('Bl')"
-    id="Bl" class="material-icons-outlined point">adjust</mat-icon>
-    
+    <mat-icon (mousedown)="pointDown('Bl')" id="Bl" class="material-icons-outlined point">adjust</mat-icon>
+
 
   </div>
 
   <div fxFLex="50">
-    <mat-icon (mousedown)="pointDown('Br')"
-    id="Br" class="material-icons-outlined point">adjust</mat-icon>
-   
+    <mat-icon (mousedown)="pointDown('Br')" id="Br" class="material-icons-outlined point">adjust</mat-icon>
+
   </div>
+
+</div>
+<br>
+<div fxLayout="row" fxLayoutAlign="space-around center">
+  <div fxFLex="50">
+
+    <mat-form-field class="example-form-field" appearance="fill">
+      <mat-label>Top-Right</mat-label>
+      <input matInput type="text">
+      <button matSuffix mat-icon-button>
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <mat-form-field class="example-form-field" appearance="fill">
+      <mat-label>Top-Left</mat-label>
+      <input matInput type="text">
+      <button matSuffix mat-icon-button>
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <mat-form-field class="example-form-field" appearance="fill">
+      <mat-label>Bottom-Left</mat-label>
+      <input matInput type="text">
+      <button matSuffix mat-icon-button>
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <mat-form-field class="example-form-field" appearance="fill">
+      <mat-label>Bottom-Right</mat-label>
+      <input matInput type="text">
+      <button matSuffix mat-icon-button>
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+
+
+  </div>
+
 
 </div>

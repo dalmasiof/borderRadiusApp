@@ -4,7 +4,14 @@ import { AppComponent } from './app.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+// import { MatButtonModule } from '@angular/material/';
 
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+  
 
 @NgModule({
   declarations: [
@@ -13,7 +20,10 @@ import { MatIconModule } from '@angular/material/icon';
   imports: [
     BrowserModule,
     FlexLayoutModule,
-    MatIconModule
+    MatIconModule,
+    MatInputModule,
+    BrowserAnimationsModule,
+    MatButtonModule
 
   ],
   providers: [],
