@@ -28,6 +28,7 @@
 </div>
 
 
+
 <div fxLayout="row" fxLayoutAlign="space-around center">
   <div fxFLex="50">
     <mat-icon (mousedown)="pointDown('Bl')" id="Bl" class="material-icons-outlined point">adjust</mat-icon>
@@ -42,20 +43,30 @@
 
 </div>
 <br>
+
+<div fxLayout="row" fxLayoutAlign="space-around center">
+  <div fxFLex="20"></div>
+  <div fxFLex="60">
+    {{innerBoxBorderRadius}}
+  </div>
+  <div fxFLex="20"></div>
+</div>  
+
 <div fxLayout="row" fxLayoutAlign="space-around center">
   <div fxFLex="50">
 
     <mat-form-field class="example-form-field" appearance="fill">
-      <mat-label>Top-Right</mat-label>
+      <mat-label>Top-Left</mat-label>
       <input matInput type="text">
       <button matSuffix mat-icon-button>
         <mat-icon>close</mat-icon>
       </button>
     </mat-form-field>
 
+    
     <mat-form-field class="example-form-field" appearance="fill">
-      <mat-label>Top-Left</mat-label>
-      <input matInput type="text">
+      <mat-label>Top-Right</mat-label>
+      <input name="Tr" (change)="appyRadiusFromInput('Tr',inptTr.value)" #inptTr matInput type="number">
       <button matSuffix mat-icon-button>
         <mat-icon>close</mat-icon>
       </button>
