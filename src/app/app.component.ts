@@ -13,6 +13,12 @@ export class AppComponent implements OnInit {
   title = 'borderRadiusApp';
   subs?: Subscription;
 
+  Tr: number = 0
+  Tl: number = 0
+  Br: number = 0
+  Bl: number = 0
+
+
 
   mousemove = fromEvent(document, 'mousemove');
   mouseup = fromEvent(document, 'mouseup');
@@ -29,13 +35,21 @@ export class AppComponent implements OnInit {
       switch (position) {
 
         case "Tl":
+          debugger
           let tl = 0
           if (element.style.borderTopLeftRadius.replace('%', '') != "")
             tl = parseInt(element.style.borderTopLeftRadius.replace('%', ''))
 
-          tl += multiplier
+          if (tl == 0 && multiplier == -1) {
+            this.Tl = 0;
+          }
+          else {
+            tl += multiplier
+            element.style.borderTopLeftRadius = tl + "%"
+            this.Tl = tl;
+          }
 
-          element.style.borderTopLeftRadius = tl + "%"
+
           break;
 
         case "Tr":
@@ -43,9 +57,14 @@ export class AppComponent implements OnInit {
           if (element.style.borderTopRightRadius.replace('%', '') != "")
             tr = parseInt(element.style.borderTopRightRadius.replace('%', ''))
 
-          tr += multiplier
-
-          element.style.borderTopRightRadius = tr + "%"
+          if (tr == 0 && multiplier == -1) {
+            this.Tl = 0;
+          }
+          else {
+            tr += multiplier
+            element.style.borderTopRightRadius = tr + "%"
+            this.Tr = tr;
+          }
 
           break;
 
@@ -54,9 +73,14 @@ export class AppComponent implements OnInit {
           if (element.style.borderBottomRightRadius.replace('%', '') != "")
             br = parseInt(element.style.borderBottomRightRadius.replace('%', ''))
 
-          br += multiplier
-
-          element.style.borderBottomRightRadius = br + "%"
+          if (br == 0 && multiplier == -1) {
+            this.Br = 0;
+          }
+          else {
+            br += multiplier
+            element.style.borderBottomRightRadius = br + "%"
+            this.Br = br;
+          }
           break;
 
         case "Bl":
@@ -64,20 +88,23 @@ export class AppComponent implements OnInit {
           if (element.style.borderBottomLeftRadius.replace('%', '') != "")
             bl = parseInt(element.style.borderBottomLeftRadius.replace('%', ''))
 
-          bl += multiplier
+          if (bl == 0 && multiplier == -1) {
+            this.Bl = 0;
+          }
+          else {
+            bl += multiplier
+            element.style.borderBottomLeftRadius = bl + "%"
+            this.Bl = bl;
+          }
 
-          element.style.borderBottomLeftRadius = bl + "%"
           break;
       }
     }
-    this.generateBorderRadiusString()
 
   }
 
-  appyRadiusFromInput(position: string, valueInput: string) {
-debugger
-    (valueInput == "" ? valueInput = "0" : valueInput = valueInput)
-    var multiplier = parseInt(valueInput)
+  appyRadiusFromInput(position: string) {
+    debugger
     var element = document.getElementById("innerBox");
 
     if (element) {
@@ -86,19 +113,23 @@ debugger
         case "Tl":
           let tl = 0
           if (element.style.borderTopLeftRadius.replace('%', '') != "")
-            tl = parseInt(element.style.borderTopLeftRadius.replace('%', ''))
+            tl = parseInt(element.style.borderTopLeftRadius.replace('%', ''));
 
-          tl = multiplier
+          tl = this.Tl;
+          (this.Tl == null ? tl = 0 : this.Tl = tl)
 
           element.style.borderTopLeftRadius = tl + "%"
+
           break;
 
         case "Tr":
           let tr = 0
           if (element.style.borderTopRightRadius.replace('%', '') != "")
-            tr = parseInt(element.style.borderTopRightRadius.replace('%', ''))
+            tr = parseInt(element.style.borderTopRightRadius.replace('%', ''));
 
-          tr = multiplier
+
+          tr = this.Tr;
+          (this.Tr == null ? tr = 0 : this.Tr = tr)
 
           element.style.borderTopRightRadius = tr + "%"
 
@@ -107,37 +138,31 @@ debugger
         case "Br":
           let br = 0
           if (element.style.borderBottomRightRadius.replace('%', '') != "")
-            br = parseInt(element.style.borderBottomRightRadius.replace('%', ''))
+            br = parseInt(element.style.borderBottomRightRadius.replace('%', ''));
 
-          br = multiplier
+          br = this.Br;
+          (this.Br == null ? br = 0 : this.Br = br)
 
           element.style.borderBottomRightRadius = br + "%"
+
           break;
 
         case "Bl":
           let bl = 0
           if (element.style.borderBottomLeftRadius.replace('%', '') != "")
-            bl = parseInt(element.style.borderBottomLeftRadius.replace('%', ''))
+            bl = parseInt(element.style.borderBottomLeftRadius.replace('%', ''));
 
-          bl = multiplier
+          bl = this.Bl;
+          (this.Bl == null ? bl = 0 : this.Bl = bl)
 
           element.style.borderBottomLeftRadius = bl + "%"
+
           break;
       }
     }
-    this.generateBorderRadiusString()
   }
 
-  generateBorderRadiusString() {
-    debugger
-    var element = document.getElementById("innerBox");
-    if (element) {
-      this.innerBoxBorderRadius = `${element.style.borderTopLeftRadius},
-      ${element.style.borderTopRightRadius},
-      ${element.style.borderBottomRightRadius},
-      ${element.style.borderBottomLeftRadius},`
-    }
-  }
+
 
   pointDown(position: string) {
     var direction = position.substring(1)
@@ -163,4 +188,6 @@ debugger
       }
     })
   }
+
+
 }

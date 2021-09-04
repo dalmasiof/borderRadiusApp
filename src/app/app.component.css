@@ -5,6 +5,7 @@
     background-color: blueviolet;
     width: 600px !important;
     height: 500px !important;
+    
 }
 
 .point{
@@ -18,4 +19,8 @@
 
 mat-form-field{
     margin-right: 2px;
+}
+
+.fieldResult{
+    width:  100%;
 }

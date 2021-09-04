@@ -45,11 +45,20 @@
 <br>
 
 <div fxLayout="row" fxLayoutAlign="space-around center">
-  <div fxFLex="20"></div>
-  <div fxFLex="60">
+  <div *ngIf="innerBoxBorderRadius" fxFLex="60">
     {{innerBoxBorderRadius}}
   </div>
-  <div fxFLex="20"></div>
+  <div *ngIf="innerBoxBorderRadius == null" fxFLex="60">
+   
+    <mat-form-field  class="fieldResult" appearance="fill">
+      <mat-label>Border Radius</mat-label>
+      <input value="border-radius: {{Tl}}% {{Tr}}% {{Br}}% {{Bl}}%;" matInput readonly>
+      <button matSuffix mat-icon-button>
+        <mat-icon>file_copy</mat-icon>
+      </button>
+    </mat-form-field>
+
+  </div>
 </div>  
 
 <div fxLayout="row" fxLayoutAlign="space-around center">
@@ -57,7 +66,7 @@
 
     <mat-form-field class="example-form-field" appearance="fill">
       <mat-label>Top-Left</mat-label>
-      <input matInput type="text">
+      <input [(ngModel)]="Tl" name="Tl" (keyup)="appyRadiusFromInput('Tl')" matInput >
       <button matSuffix mat-icon-button>
         <mat-icon>close</mat-icon>
       </button>
@@ -66,7 +75,7 @@
     
     <mat-form-field class="example-form-field" appearance="fill">
       <mat-label>Top-Right</mat-label>
-      <input name="Tr" (change)="appyRadiusFromInput('Tr',inptTr.value)" #inptTr matInput type="number">
+      <input [(ngModel)]="Tr" name="Tr" (keyup)="appyRadiusFromInput('Tr')" matInput >
       <button matSuffix mat-icon-button>
         <mat-icon>close</mat-icon>
       </button>
@@ -74,7 +83,7 @@
 
     <mat-form-field class="example-form-field" appearance="fill">
       <mat-label>Bottom-Left</mat-label>
-      <input matInput type="text">
+      <input [(ngModel)]="Bl" name="Bl" (keyup)="appyRadiusFromInput('Bl')" matInput >
       <button matSuffix mat-icon-button>
         <mat-icon>close</mat-icon>
       </button>
@@ -82,7 +91,7 @@
 
     <mat-form-field class="example-form-field" appearance="fill">
       <mat-label>Bottom-Right</mat-label>
-      <input matInput type="text">
+      <input [(ngModel)]="Br" name="Br" (keyup)="appyRadiusFromInput('Br')" matInput >
       <button matSuffix mat-icon-button>
         <mat-icon>close</mat-icon>
       </button>
