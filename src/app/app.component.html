@@ -52,8 +52,8 @@
    
     <mat-form-field  class="fieldResult" appearance="fill">
       <mat-label>Border Radius</mat-label>
-      <input value="border-radius: {{Tl}}% {{Tr}}% {{Br}}% {{Bl}}%;" matInput readonly>
-      <button matSuffix mat-icon-button>
+      <input value="border-radius: {{Tl}}% {{Tr}}% {{Br}}% {{Bl}}%;" #resultValue matInput readonly>
+      <button (click)="openSnackBar()" [cdkCopyToClipboard]="resultValue.value" matSuffix mat-icon-button>
         <mat-icon>file_copy</mat-icon>
       </button>
     </mat-form-field>

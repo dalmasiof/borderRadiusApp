@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { fromEvent, Subscription } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import {MatSnackBar} from '@angular/material/snack-bar';
+
 
 
 @Component({
@@ -25,6 +27,10 @@ export class AppComponent implements OnInit {
 
   innerBoxBorderRadius?: string
 
+  constructor(private _snackBar: MatSnackBar){
+
+  }
+  
   ngOnInit(): void {
   }
 
@@ -35,7 +41,7 @@ export class AppComponent implements OnInit {
       switch (position) {
 
         case "Tl":
-          debugger
+          
           let tl = 0
           if (element.style.borderTopLeftRadius.replace('%', '') != "")
             tl = parseInt(element.style.borderTopLeftRadius.replace('%', ''))
@@ -189,5 +195,8 @@ export class AppComponent implements OnInit {
     })
   }
 
-
+  openSnackBar() {
+    this._snackBar.open("Copy successful!!","Close");
+  }
+  
 }
