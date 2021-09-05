@@ -1,27 +1,6 @@
-# BorderRadiusApp
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.0.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+  ##borderRaiusApp
+  <p>This is an Angular appication, so to start on your machine you musta have installed some requisites, check <a target="_blank" href="https://angular.io">Angular docs</a> for more info.</p>
+  <p>After serve your the app, everythig i ready to run, have fun!</p>
+  <img align="left" height="180em"  src="https://github.com/dalmasiof/borderRadiusApp/blob/master/printsApp/print1PNG.PNG"/>
+  <p>You can drang and drop  to update the border radius values using te points on te corner of the box, or just insert values in the input fields.</p>
+  <p>Next step is just copy the css properties values and appy into your stylesheet.</p>
